@@ -27,7 +27,7 @@ This is a Browser-Based game built with the help of HTML, CSS, JavaScript.
 
 ## Game preview
 
-The user can play the game [here]().
+The user can play the game [here](https://valermuresan.github.io/2019-Memory-Game/).
 
 
 ## Project dependencies
