@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <!--Set the scalable viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Set the compatibility mode with IE-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--Peoject name -->
+    <meta name="description" content="Project from UDACITY-FEWDN: Memory Game">
+    <meta name="author" content="Valer Muresan">
+    <!--The web application runs in full-screen mode on apple devices-->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!--Lauch the app in full-screen on android devices-->
+    <meta name="mobile-web-app-capable" content="yes">
+    <title>Memory Game</title>
+    <!-- Enabling the use of icons from fontawesome.com-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div class="container">
+      <input type="button" class="inst-button" value="How to play!">
+      <div id="instructions" class="instructions-modal">
+        <div class="instructions-container">
+      <ul class="close">
+        <li><i class="fas fa-window-close"></i></li>
+      </ul>
+        <h3>Instructions: </h3>
+        <p>The game contains 8 hidden pairs of cards.</p>
+        <p>The player have to click on each card and find the pairs.</p>
+        <p>The performance of every player depends on the clicks number, necessary for matching all the cards.</p>
+        <p>The maximum number of atoms that can be achieved is 5 and the minimum number of atoms is 0.</p>
+        <h2>Have fun!</h2>
+      </div>
+     </div>
+        <header>
+            <h1>Memory Game</h1>
+        </header>
+
+        <section class="score-board">
+        	<ul class="atoms">
+        		<li><i class="fas fa-atom"></i></li>
+        		<li><i class="fas fa-atom"></i></li>
+        		<li><i class="fas fa-atom"></i></li>
+            <li><i class="fas fa-atom"></i></li>
+            <li><i class="fas fa-atom"></i></li>
+        	</ul>
+        	<div id="clicks">Click(s) 0</div>
+          <div id="timer">00:00:00</div>
+          <div class="undo">
+            <i class="fas fa-undo-alt"></i>
+          </div>
+        </section>
+
+        <ul class="pack">
+          <!-- All the below cards were hidden for letting JavaScript to generate them automatically
+          -->
+          <!--
+            <li class="card">
+               <i class="fas fa-fighter-jet"></i>
+            </li>
+            <li class="card">
+               <i class="fas fa-bus"></i>
+            </li>
+            <li class="card">
+                <i class="fas fa-car"></i>
+            </li>
+            <li class="card">
+                <i class="fas fa-motorcycle"></i>
+            </li>
+            <li class="card">
+                <i class="fas fa-plane"></i>
+            </li>
+            <li class="card">
+                <i class="fas fa-shuttle-van"></i>
+            </li>
+            <li class="card">
+                <i class="fas fa-truck"></i>
+            </li>
+            <li class="card">
+                <i class="fas fa-truck-pickup"></i>
+            </li>
+            <li class="card">
+               <i class="fas fa-fighter-jet"></i>
+            </li>
+            <li class="card">
+               <i class="fas fa-bus"></i>
+            </li>
+            <li class="card">
+                <i class="fas fa-car"></i>
+            </li>
+            <li class="card">
+                <i class="fas fa-motorcycle"></i>
+            </li>
+            <li class="card">
+                <i class="fas fa-plane"></i>
+            </li>
+            <li class="card">
+                <i class="fas fa-shuttle-van"></i>
+            </li>
+            <li class="card">
+                <i class="fas fa-truck"></i>
+            </li>
+            <li class="card">
+                <i class="fas fa-truck-pickup"></i>
+            </li>
+          -->
+        </ul>
+    </div>
+<div id="end-message" class="end-modal">
+  <div class="modal-container">
+    <ul class="close-modal">
+      <li><i class="fas fa-times"></i></li>
+      </ul>
+    <h2>Great job!
+      <i class="fas fa-trophy">
+      </i>
+    </h2>
+    <h3>Your score is:</h3>
+    <p class="modal-atoms"></p>
+    <p class="modal-clicks"></p>
+    <p class="modal-time"></p>
+    <div class="modal-buttons">
+      <button id="new-game">New game</button>
+      <button id="quit-game">Quit game</button>
+    </div>
+  </div>
+</div>
+<script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,480 @@
+/*width and height apply to all elements from html file*/
+html {
+  box-sizing: border-box;
+}
+
+/*resets all items*/
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: 'Nanum Gothic', sans-serif;
+    background: #ffffff url('../images/funky-lines.png'); /* Background pattern from Subtle Patterns */
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+h1 {
+    font-family: 'Nanum Gothic', sans-serif;
+    font-weight: 800;
+    margin: 5px 0 7px;
+    font-size: 7vh;
+    color: #07591A;
+}
+/*
+* Style for the score-board
+*/
+.score-board {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  font-size: 1.7em;
+  justify-content: center;
+  padding-bottom: 10px;
+}
+
+.score-board .atoms {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+}
+
+.score-board .atoms li {
+    float: left;
+    list-style: none;
+    display: inline-block;
+    margin-right: 7px;
+}
+
+#clicks {
+  margin: 0 7px;
+  color: #78a542;
+  font-weight: 700;
+}
+
+#timer {
+  margin: 0 7px;
+  color: #42a563;
+  font-weight: 700;
+}
+
+.undo {
+  cursor: pointer;
+}
+
+.undo:hover {
+  transition: all 0.5s ease;
+  transform: rotateZ(-1turn);
+}
+
+/*
+ * Set the style for the cards pack
+ */
+
+.pack {
+    width: 520px;
+    min-height: 520px;
+    background: linear-gradient(160deg, #42a563 0%, #78a542 100%);
+    padding: 32px;
+    border-radius: 25px;
+    box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 3em;
+}
+
+.pack .card {
+    height: 93px;
+    width: 93px;
+    background: #ed622f;
+    font-size: 0px;
+    margin: 3px;
+    color: #122413;
+    border-radius: 15px;
+    cursor: grab;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+}
+
+.pack .card.turnOn {
+    transform: rotateY(0);
+    background: #ff0000;
+    cursor: default;
+}
+
+.pack .card.display {
+    font-size: 50px;
+    animation: flash 1s;
+}
+
+/*
+* Credit for the author  https://raw.githubusercontent.com/daneden/animate.css/master/animate.css
+*/
+
+@-webkit-keyframes flash {
+  from,
+  50%,
+  to {
+    opacity: 1;
+  }
+
+  25%,
+  75% {
+    opacity: 0;
+  }
+}
+
+@keyframes flash {
+  from,
+  50%,
+  to {
+    opacity: 1;
+  }
+  25%,
+  75% {
+    opacity: 0;
+  }
+}
+
+.flash {
+  -webkit-animation-name: flash;
+  animation-name: flash;
+}
+
+.pack .card.fit {
+    cursor: default;
+    background: #d9ff00;
+    font-size: 40px;
+    animation: wobble 0.7s;
+}
+
+/*
+*Based on https://raw.githubusercontent.com/daneden/animate.css/master/animate.css
+*/
+@keyframes wobble {
+  from {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+
+  15% {
+    -webkit-transform: translate3d(-25%, 0, 0) rotate3d(0, 0, 1, -5deg);
+    transform: translate3d(-25%, 0, 0) rotate3d(0, 0, 1, -5deg);
+  }
+
+  30% {
+    -webkit-transform: translate3d(20%, 0, 0) rotate3d(0, 0, 1, 3deg);
+    transform: translate3d(20%, 0, 0) rotate3d(0, 0, 1, 3deg);
+  }
+
+  45% {
+    -webkit-transform: translate3d(-15%, 0, 0) rotate3d(0, 0, 1, -3deg);
+    transform: translate3d(-15%, 0, 0) rotate3d(0, 0, 1, -3deg);
+  }
+
+  60% {
+    -webkit-transform: translate3d(10%, 0, 0) rotate3d(0, 0, 1, 2deg);
+    transform: translate3d(10%, 0, 0) rotate3d(0, 0, 1, 2deg);
+  }
+
+  75% {
+    -webkit-transform: translate3d(-5%, 0, 0) rotate3d(0, 0, 1, -1deg);
+    transform: translate3d(-5%, 0, 0) rotate3d(0, 0, 1, -1deg);
+  }
+
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.wobble {
+  -webkit-animation-name: wobble;
+  animation-name: wobble;
+}
+
+.pack .card.disable {
+  pointer-events: none;
+}
+
+input.inst-button {
+  font-family: 'Nanum Gothic', sans-serif;
+  background-color: #f4cda8;
+  color: #42a563;
+  margin: 10px 0 2px;
+  text-align: center;
+  border-radius: 7px;
+  border-color: #07591A;
+  font-size: 1.3em;
+  font-weight: 900;
+  transition: 0.9s ease;
+  cursor: help;
+}
+
+.inst-button:focus {
+  outline: 0;
+}
+
+.inst-button:active {
+  transform: scale(.85);
+  transition: transform .5s;
+}
+
+.instructions-modal {
+  position: absolute;
+  heigth: 100vw;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgb(3,3,10,0.8);
+  cursor: not-allowed;
+  z-index: 1;
+  display: none;
+}
+
+.close li {
+  cursor: pointer;
+  list-style: none;
+  color: #07591A;
+  text-align: right;
+  position: relative;
+  margin-top: 2px;
+  margin-right: 2px;
+  font-size: 1.5em;
+}
+
+.close li:hover {
+  color: #ed622f;
+}
+
+.instructions-container {
+  margin: 5% auto 2vh;
+  font-family: 'Nanum Gothic', sans-serif;
+  color: #110102;
+  background: linear-gradient(#F9FBCE, #C6F7E1, #D8B8F8);
+  height: 50%;
+  width: 40%;
+  font-size: 1em;
+  border-radius: 2px;
+  text-align: center;
+  line-height: 5px;
+}
+
+p {
+  font-weight: bold;
+  text-align: left;
+  margin-left: 10px;
+  margin-right: 10px;
+  line-height: 17px;
+  padding: 0;
+}
+
+.instructions-container h3 {
+  font-weight: bold;
+  font-style: italic;
+  padding-bottom: 20px;
+}
+
+.instructions-container h2 {
+  font-style: oblique;
+  font-weight: 800;
+}
+
+.end-modal {
+    position: absolute;
+    heigth: 100vw;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgb(3,3,10,0.8);
+    cursor: default;
+    z-index: 1;
+    display: none;
+}
+
+.modal-container {
+  margin: 10% auto;
+  font-family: 'Nanum Gothic', sans-serif;
+  color: #110102;
+  background: linear-gradient(#F9FBCE, #C6F7E1, #D8B8F8);
+  height: 50%;
+  width: 70%;
+  font-size: 1em;
+  border-radius: 2px;
+  text-align: center;
+  line-height: 15px;
+}
+
+.close-modal li {
+  cursor: pointer;
+  color: #930C15;
+  list-style: none;
+  text-align: right;
+  margin-right: 4px;
+  margin-top: 2px;
+  font-size: 1.5em;
+}
+
+.close-modal li:hover {
+  color: #0C1493;
+}
+
+.modal-container h2 i {
+  color: gold;
+}
+
+.modal-container p {
+  font-weight: bold;
+  text-align: center;
+}
+
+.modal-buttons button {
+  background-color: #0F3308;
+  border: none;
+  color: white;
+  padding: 10px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1em;
+  border-radius: 3px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.modal-buttons button:focus {
+  outline: 0;
+}
+
+.modal-buttons button:hover {
+ background-color: #07591A;
+}
+
+.modal-atoms li {
+  list-style: none;
+  display: inline-block;
+  margin-right: 5px;
+}
+/*
+*Setting the media queries for being responsive
+*/
+@media (max-width: 300px) {
+h1 {
+  font-size: 5vw;
+}
+
+.score-board {
+  font-size: 0.7em;
+}
+
+input.inst-button {
+  font-size: 1em;
+}
+
+.pack {
+  width: 100%;
+  min-height: 100%;
+}
+
+.pack .card {
+  height: 15vw;
+  width: 15vw;
+  border-radius: 7px;
+  margin: 0.7vw;
+}
+
+.pack .card.display  {
+font-size: 20px;
+}
+
+.instructions-container {
+  margin: 2% auto;
+  height: 50%;
+  width: 90%;
+  font-size: 0.7em;
+  border-radius: 2px;
+  text-align: center;
+  line-height: 5px;
+}
+
+.modal-container {
+  margin: 10% auto;
+  height: 50%;
+  width: 80%;
+  font-size: 0.7em;
+}
+
+.modal-buttons button {
+  padding: 5px 10px;
+  font-size: 0.7em;
+  margin-left: 2px;
+  margin-right: 2px;
+}
+}
+
+@media (min-width: 301px) and (max-width: 530px) {
+  h1 {
+    font-size: 7vw;
+  }
+
+  .score-board {
+    font-size: 1em;
+  }
+
+  .pack {
+    width: 100%;
+    min-height: 100%;
+  }
+
+  .pack .card {
+    height: 17vw;
+    width: 17vw;
+    border-radius: 9px;
+    margin: 0.9vw;
+  }
+
+  .pack .card.display  {
+  font-size: 40px;
+  }
+
+  .instructions-container {
+    margin: 2% auto;
+    height: 50%;
+    width: 85%;
+    font-size: 0.7em;
+    border-radius: 2px;
+    text-align: center;
+    line-height: 5px;
+  }
+
+  .modal-container {
+    margin: 10% auto;
+    height: 50%;
+    width: 80%;
+    font-size: 0.7em;
+  }
+
+  .modal-buttons button {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  }
